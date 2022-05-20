@@ -1,0 +1,7 @@
+{
+  "name": "Abu Raihan",
+  "age": 19,
+  "profession": "student",
+  "email": "aburaihansaker567@gmail.com",
+  "address": { "city": "Mymensingh", "country": "BD" }
+}
