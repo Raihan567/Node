@@ -8,11 +8,18 @@ const app = express();
 function customMiddleware(req, res, next) {
   // console.log("I am logged");
   if (req.url === "/help") {
-    res.send("<h1>Sorry, this page is blocked by Admin</h1>");  
+    res.send("<h1>Sorry, this page is blocked by Admin</h1>");
   }
   next();
 }
-app.use(customMiddleware);
+function tinyLogger() {
+  return (req, res, next) => {
+    console.log(`${req.method} - ${req.url}`);
+    next();
+  };
+}
+const middleware = [customMiddleware, tinyLogger()];
+app.use(middleware);
 
 app.get("/pany", (req, res) => {
   res.send("<h1>Hi, I am pany Page</h1>");
