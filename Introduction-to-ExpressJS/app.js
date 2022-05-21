@@ -21,28 +21,45 @@ function tinyLogger() {
 const middleware = [customMiddleware, tinyLogger()];
 app.use(middleware);
 
-app.get("/pany", (req, res) => {
-  res.send("<h1>Hi, I am pany Page</h1>");
-});
+// User Router
+const router = express.Router()
+router.get('/logIn', (req, res, next)=>{
+  res.send('I am login Route')
+})
+router.get('/logOut', (req, res, next)=>{
+  res.send('I am logout Route')
+})
+router.get('/signUp', (req, res, next)=>{
+  res.send('I am signup Route')
+})
+router.get('/signOut', (req, res, next)=>{
+  res.send('I am signOut Route')
+})
+//User Router End
+app.use('/user', router )
 
-app.get("/get", (req, res) => {
-  res.send("<h1>Hi, I am get Page</h1>");
-});
+// app.get("/pany", (req, res) => {
+//   res.send("<h1>Hi, I am pany Page</h1>");
+// });
 
-app.get("/help", (req, res) => {
-  res.send("<h1>Hi, I am help Page</h1>");
-});
+// app.get("/get", (req, res) => {
+//   res.send("<h1>Hi, I am get Page</h1>");
+// });
 
-app.get("/service", (req, res) => {
-  res.send("<h1>Hello, I am service page</h1>");
-});
+// app.get("/help", (req, res) => {
+//   res.send("<h1>Hi, I am help Page</h1>");
+// });
 
-app.get("/about", morgan("dev"), (req, res) => {
-  // res.send("<h1>Hi I am about page.</h1>");
-  res.json({
-    message: "Hello nodejs how are you. I am Looking for you. ",
-  });
-});
+// app.get("/service", (req, res) => {
+//   res.send("<h1>Hello, I am service page</h1>");
+// });
+
+// app.get("/about", morgan("dev"), (req, res) => {
+//   // res.send("<h1>Hi I am about page.</h1>");
+//   res.json({
+//     message: "Hello nodejs how are you. I am Looking for you. ",
+//   });
+// });
 
 app.get("/", (req, res) => {
   res.send("<h1>Hello, Raihan I am NodeJs. Keep learning </h1>");
