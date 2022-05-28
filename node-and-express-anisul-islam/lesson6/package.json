@@ -1,0 +1,16 @@
+{
+  "name": "lesson6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Raihan",
+  "keywords": [],
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {}
+}
